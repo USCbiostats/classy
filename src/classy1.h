@@ -3,17 +3,17 @@
 #include <vector>
 #include <numeric>
 
-#ifndef CLASSY_H
-#define CLASSY_H
+#ifndef CLASSY1_H
+#define CLASSY1_H
 
-class classy {
+class classy1 {
 
 private:
   std::vector< double > x;
 
 public:
-  classy(std::vector< double > x_): x(x_) {};
-  ~classy() {
+  classy1(std::vector< double > x_): x(x_) {};
+  ~classy1() {
     std::cout << "I don't want to dieee!!!\n" ;
   };
 
