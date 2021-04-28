@@ -43,3 +43,10 @@ template<class T> T classy3< T >::get() {
   return *x;
 }
 
+template<class T> void classy3< T >::get_address() const {
+
+  Rprintf("Address of x[1] (   classy3   ): %p\n",  (void*) &(this->x->operator[](0u)) );
+
+  return;
+
+}

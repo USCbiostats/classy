@@ -1,4 +1,5 @@
 #include "classy1.h"
+#include <Rcpp.h>
 
 
 // Counts the number of elements in x
@@ -28,4 +29,8 @@ int classy1::count_if_less(double y) {
 // but is a nice example of `this->` :).
 std::vector< double > classy1::get() {
   return this->x;
+}
+
+void classy1::get_address() const {
+  Rprintf("Address of x[1] (   classy1   ): %p\n",  (void*) &(this->x[0u]) );
 }

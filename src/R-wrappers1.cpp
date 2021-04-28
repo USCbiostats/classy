@@ -5,6 +5,8 @@ using namespace Rcpp;
 
 //' The `classy1` C++ class (copies R objects)
 //' @param x A numeric vector.
+//' @param p A pointer to a classy1 object.
+//' @param y Numeric scalar.
 //' @return
 //' The `new_classy1` function creates an object of C++ class `classy`. This is
 //' an object of class [externalptr-class] in the R side.
@@ -17,7 +19,7 @@ using namespace Rcpp;
 //'
 //' `classy_get1` returns the original vector `x` passed to `new_classy`.
 //' @export
-//' @aliases classy1 classy1-class
+//' @name classy1-class
 //' @examples
 //'
 //' # Creating a new object
@@ -42,53 +44,63 @@ using namespace Rcpp;
 //' # If we call the garbage collector, you can see the destructor been called
 //' gc()
 // [[Rcpp::export]]
-SEXP new_classy1(std::vector< double > x_) {
+SEXP new_classy1(std::vector< double > x) {
 
-  return wrap(Rcpp::XPtr< classy1 >(new classy1(x_), true));
-
-}
-
-//' @export
-//' @rdname new_classy
-// [[Rcpp::export]]
-SEXP classy_get1(SEXP p_) {
-
-  Rcpp::XPtr< classy1 > p(p_);
-
-  return wrap(p->get());
+  return wrap(Rcpp::XPtr< classy1 >(new classy1(x), true));
 
 }
 
 //' @export
-//' @rdname new_classy
+//' @rdname classy1-class
 // [[Rcpp::export]]
-int classy_count1(SEXP p_) {
+SEXP classy_get1(SEXP p) {
 
-  Rcpp::XPtr< classy1 > p(p_);
+  Rcpp::XPtr< classy1 > p_(p);
 
-  return p->count();
+  return wrap(p_->get());
 
 }
 
 //' @export
-//' @rdname new_classy
+//' @rdname classy1-class
 // [[Rcpp::export]]
-double classy_sum1(SEXP p_) {
+int classy_count1(SEXP p) {
 
-  Rcpp::XPtr< classy1 > p(p_);
+  Rcpp::XPtr< classy1 > p_(p);
 
-  return p->sum();
+  return p_->count();
 
 }
 
 //' @export
-//' @rdname new_classy
+//' @rdname classy1-class
 // [[Rcpp::export]]
-double classy_count_if_less1(SEXP p_, double y) {
+double classy_sum1(SEXP p) {
 
-  Rcpp::XPtr< classy1 > p(p_);
+  Rcpp::XPtr< classy1 > p_(p);
 
-  return p->count_if_less(y);
+  return p_->sum();
 
 }
 
+//' @export
+//' @rdname classy1-class
+// [[Rcpp::export]]
+double classy_count_if_less1(SEXP p, double y) {
+
+  Rcpp::XPtr< classy1 > p_(p);
+
+  return p_->count_if_less(y);
+
+}
+
+//' @export
+//' @rdname classy1-class
+// [[Rcpp::export(invisible=true)]]
+int classy_get_address1(SEXP p) {
+
+  Rcpp::XPtr< classy1 > p_(p);
+  p_->get_address();
+  return 0;
+
+}

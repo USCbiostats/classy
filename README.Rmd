@@ -54,7 +54,8 @@ devtools::install_github("USCbiostats/classy")
 library(classy)
 
 set.seed(1)
-obj <- new_classy1(runif(10))
+x <- runif(10)
+obj <- new_classy1(x)
 
 # Getting the sum
 classy_sum1(obj)
@@ -76,19 +77,30 @@ classy_get1(obj)
 # loading the package
 library(classy)
 
-set.seed(1)
-obj <- new_classy3(runif(10))
+obj3 <- new_classy3(x)
 
 # Getting the sum
-classy_sum3(obj)
+classy_sum3(obj3)
 
 # Counting
-classy_count3(obj)
+classy_count3(obj3)
 
 # Conditional count
-classy_count_if_less3(obj, 0.5)
+classy_count_if_less3(obj3, 0.5)
 
 # The object
-classy_get3(obj)
+classy_get3(obj3)
 ```
+
+## Checking out the addresses
+
+The final challenge, make sure that `obj3` (`classy3`) is actually pointing to
+the same object than `x`.
+
+```{r}
+get_address(x)
+classy_get_address1(obj)
+classy_get_address3(obj3)
+```
+
 

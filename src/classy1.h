@@ -14,13 +14,14 @@ private:
 public:
   classy1(std::vector< double > x_): x(x_) {};
   ~classy1() {
-    std::cout << "I don't want to dieee!!!\n" ;
+    // printf("killing classy1...\n");
   };
 
   double sum();
   int count();
   int count_if_less(double y);
   std::vector< double > get();
+  void get_address() const;
 
 
 };

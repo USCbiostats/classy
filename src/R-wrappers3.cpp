@@ -5,6 +5,8 @@ using namespace Rcpp;
 
 //' The `classy3` C++ class (uses smart pointers)
 //' @param x A numeric vector.
+//' @param p A pointer to a classy3 object.
+//' @param y Numeric scalar.
 //' @return
 //' The `new_classy3` function creates an object of C++ class `classy3`. This is
 //' an object of class [externalptr-class] in the R side.
@@ -17,7 +19,7 @@ using namespace Rcpp;
 //'
 //' `classy_get3` returns the original vector `x` passed to `new_classy`.
 //' @export
-//' @aliases classy3 classy3-class
+//' @name classy3-class
 //' @examples
 //'
 //' # Creating a new object
@@ -42,55 +44,76 @@ using namespace Rcpp;
 //' # If we call the garbage collector, you can see the destructor been called
 //' gc()
 // [[Rcpp::export]]
-SEXP new_classy3(NumericVector x_) {
+SEXP new_classy3(NumericVector x) {
 
-  std::shared_ptr<NumericVector> x = std::make_shared<NumericVector>(x_);
+  std::shared_ptr<NumericVector> x_ = std::make_shared<NumericVector>(x);
 
-  return wrap(Rcpp::XPtr< classy3<NumericVector> >(new classy3<NumericVector>(x) , true));
-
-}
-
-//' @export
-//' @rdname new_classy
-// [[Rcpp::export]]
-SEXP classy_get3(SEXP p_) {
-
-  Rcpp::XPtr< classy3<NumericVector> > p(p_);
-
-  return wrap(p->get());
+  return wrap(Rcpp::XPtr< classy3<NumericVector> >(new classy3<NumericVector>(x_) , true));
 
 }
 
 //' @export
-//' @rdname new_classy
+//' @rdname classy3-class
 // [[Rcpp::export]]
-int classy_count3(SEXP p_) {
+SEXP classy_get3(SEXP p) {
 
-  Rcpp::XPtr< classy3<NumericVector> > p(p_);
+  Rcpp::XPtr< classy3<NumericVector> > p_(p);
 
-  return p->count();
+  return wrap(p_->get());
 
 }
 
 //' @export
-//' @rdname new_classy
+//' @rdname classy3-class
 // [[Rcpp::export]]
-double classy_sum3(SEXP p_) {
+int classy_count3(SEXP p) {
 
-  Rcpp::XPtr< classy3<NumericVector> > p(p_);
+  Rcpp::XPtr< classy3<NumericVector> > p_(p);
 
-  return p->sum();
+  return p_->count();
 
 }
 
 //' @export
-//' @rdname new_classy
+//' @rdname classy3-class
 // [[Rcpp::export]]
-double classy_count_if_less3(SEXP p_, double y) {
+double classy_sum3(SEXP p) {
 
-  Rcpp::XPtr< classy3<NumericVector> > p(p_);
+  Rcpp::XPtr< classy3<NumericVector> > p_(p);
 
-  return p->count_if_less(y);
+  return p_->sum();
 
 }
 
+//' @export
+//' @rdname classy3-class
+// [[Rcpp::export]]
+double classy_count_if_less3(SEXP p, double y) {
+
+  Rcpp::XPtr< classy3<NumericVector> > p_(p);
+
+  return p_->count_if_less(y);
+
+}
+
+//' @export
+//' @rdname classy3-class
+// [[Rcpp::export(invisible=true)]]
+int classy_get_address3(SEXP p) {
+
+  Rcpp::XPtr< classy3<NumericVector> > p_(p);
+  p_->get_address();
+  return 0;
+
+}
+
+//' Get the address of an R vector
+//' @param x A numeric vector.
+//' @export
+// [[Rcpp::export(invisible = true)]]
+int get_address(const NumericVector & x) {
+
+  Rprintf("Address of x[1] (NumericVector): %p\n",  (void*) &(x[0u]) );
+  return 0;
+
+}

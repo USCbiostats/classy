@@ -36,23 +36,23 @@ that occupies a couple of gigs in your computer).
 
 You can take a look at the source of the files:
 
-  - Header [classy1.h](src/classy1.h)
-  - Implementation [classy1.cpp](src/classy1.cpp)
-  - R wrappers (with Rcpp::XPtr) [R-wrappers1.cpp](src/R-wrappers1.cpp)
+-   Header [classy1.h](src/classy1.h)
+-   Implementation [classy1.cpp](src/classy1.cpp)
+-   R wrappers (with Rcpp::XPtr) [R-wrappers1.cpp](src/R-wrappers1.cpp)
 
 The second method provided, `classy3` (there will be an intermediate),
 uses `NumericVector` wrapped around smart pointers, in particular,
 [`std::shared_ptr`](https://en.cppreference.com/w/cpp/memory/shared_ptr)
 instead, but it is also implemented using [class
-templates](https://en.wikipedia.org/wiki/Template_\(C%2B%2B\)#Class_templates).
+templates](https://en.wikipedia.org/wiki/Template_(C%2B%2B)#Class_templates).
 This is a more appropiate approach when dealing with large objects since
 data is never duplicated.
 
 You can take a look at the source of the files:
 
-  - Header [classy3.h](src/classy3.h)
-  - Implementation [classy3.cpp](src/classy3.cpp)
-  - R wrappers (with Rcpp::XPtr) [R-wrappers3.cpp](src/R-wrappers3.cpp)
+-   Header [classy3.h](src/classy3.h)
+-   Implementation [classy3.cpp](src/classy3.cpp)
+-   R wrappers (with Rcpp::XPtr) [R-wrappers3.cpp](src/R-wrappers3.cpp)
 
 ## Installation
 
@@ -63,12 +63,12 @@ devtools::install_github("USCbiostats/classy")
 ## Example 1: Using `classy1` (i.e. duplicating memory)
 
 ``` r
-
 # loading the package
 library(classy)
 
 set.seed(1)
-obj <- new_classy1(runif(10))
+x <- runif(10)
+obj <- new_classy1(x)
 
 # Getting the sum
 classy_sum1(obj)
@@ -91,27 +91,39 @@ classy_get1(obj)
 ## Example 2: Using `classy3` (i.e. using smart pointers)
 
 ``` r
-
 # loading the package
 library(classy)
 
-set.seed(1)
-obj <- new_classy3(runif(10))
+obj3 <- new_classy3(x)
 
 # Getting the sum
-classy_sum3(obj)
+classy_sum3(obj3)
 #> [1] 5.515139
 
 # Counting
-classy_count3(obj)
+classy_count3(obj3)
 #> [1] 10
 
 # Conditional count
-classy_count_if_less3(obj, 0.5)
+classy_count_if_less3(obj3, 0.5)
 #> [1] 4
 
 # The object
-classy_get3(obj)
+classy_get3(obj3)
 #>  [1] 0.26550866 0.37212390 0.57285336 0.90820779 0.20168193 0.89838968
 #>  [7] 0.94467527 0.66079779 0.62911404 0.06178627
+```
+
+## Checking out the addresses
+
+The final challenge, make sure that `obj3` (`classy3`) is actually
+pointing to the same object than `x`.
+
+``` r
+get_address(x)
+#> Address of x[1] (NumericVector): 0x561363816078
+classy_get_address1(obj)
+#> Address of x[1] (   classy1   ): 0x56136331c2b0
+classy_get_address3(obj3)
+#> Address of x[1] (   classy3   ): 0x561363816078
 ```

@@ -1,11 +1,12 @@
 Package: classy
 Title: Simple example of C++ Classes and External Pointers with Rcpp
-Version: 0.0.9000
-Authors@R: person("George", "Vega Yon", email="g.vegayon@gmail.com", role=c("aut", "cre"),
-    comment=c(ORCID = "0000-0002-3171-0844")
+Version: 0.1.9000
+Authors@R: c(person("George", "Vega Yon", email="g.vegayon@gmail.com", role=c("aut", "cre"),
+    comment=c(ORCID = "0000-0002-3171-0844")),
+    person("National Cancer Institute (NCI)", role = "fnd", comment = "Grant Number 5P01CA196569-02")
     )
 Description: This R package illustrates how to work with classes and Rcpp::XPtr objects in R and Rcpp.
-Depends: R (>= 3.5.1)
+Depends: R (>= 3.6)
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
@@ -14,4 +15,4 @@ LinkingTo:
 Imports: 
     Rcpp
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 6.1.0
+RoxygenNote: 7.1.1

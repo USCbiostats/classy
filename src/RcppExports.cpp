@@ -6,114 +6,147 @@
 using namespace Rcpp;
 
 // new_classy1
-SEXP new_classy1(std::vector< double > x_);
-RcppExport SEXP _classy_new_classy1(SEXP x_SEXP) {
+SEXP new_classy1(std::vector< double > x);
+RcppExport SEXP _classy_new_classy1(SEXP xSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< std::vector< double > >::type x_(x_SEXP);
-    rcpp_result_gen = Rcpp::wrap(new_classy1(x_));
+    Rcpp::traits::input_parameter< std::vector< double > >::type x(xSEXP);
+    rcpp_result_gen = Rcpp::wrap(new_classy1(x));
     return rcpp_result_gen;
 END_RCPP
 }
 // classy_get1
-SEXP classy_get1(SEXP p_);
-RcppExport SEXP _classy_classy_get1(SEXP p_SEXP) {
+SEXP classy_get1(SEXP p);
+RcppExport SEXP _classy_classy_get1(SEXP pSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< SEXP >::type p_(p_SEXP);
-    rcpp_result_gen = Rcpp::wrap(classy_get1(p_));
+    Rcpp::traits::input_parameter< SEXP >::type p(pSEXP);
+    rcpp_result_gen = Rcpp::wrap(classy_get1(p));
     return rcpp_result_gen;
 END_RCPP
 }
 // classy_count1
-int classy_count1(SEXP p_);
-RcppExport SEXP _classy_classy_count1(SEXP p_SEXP) {
+int classy_count1(SEXP p);
+RcppExport SEXP _classy_classy_count1(SEXP pSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< SEXP >::type p_(p_SEXP);
-    rcpp_result_gen = Rcpp::wrap(classy_count1(p_));
+    Rcpp::traits::input_parameter< SEXP >::type p(pSEXP);
+    rcpp_result_gen = Rcpp::wrap(classy_count1(p));
     return rcpp_result_gen;
 END_RCPP
 }
 // classy_sum1
-double classy_sum1(SEXP p_);
-RcppExport SEXP _classy_classy_sum1(SEXP p_SEXP) {
+double classy_sum1(SEXP p);
+RcppExport SEXP _classy_classy_sum1(SEXP pSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< SEXP >::type p_(p_SEXP);
-    rcpp_result_gen = Rcpp::wrap(classy_sum1(p_));
+    Rcpp::traits::input_parameter< SEXP >::type p(pSEXP);
+    rcpp_result_gen = Rcpp::wrap(classy_sum1(p));
     return rcpp_result_gen;
 END_RCPP
 }
 // classy_count_if_less1
-double classy_count_if_less1(SEXP p_, double y);
-RcppExport SEXP _classy_classy_count_if_less1(SEXP p_SEXP, SEXP ySEXP) {
+double classy_count_if_less1(SEXP p, double y);
+RcppExport SEXP _classy_classy_count_if_less1(SEXP pSEXP, SEXP ySEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< SEXP >::type p_(p_SEXP);
+    Rcpp::traits::input_parameter< SEXP >::type p(pSEXP);
     Rcpp::traits::input_parameter< double >::type y(ySEXP);
-    rcpp_result_gen = Rcpp::wrap(classy_count_if_less1(p_, y));
+    rcpp_result_gen = Rcpp::wrap(classy_count_if_less1(p, y));
+    return rcpp_result_gen;
+END_RCPP
+}
+// classy_get_address1
+int classy_get_address1(SEXP p);
+RcppExport SEXP _classy_classy_get_address1(SEXP pSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< SEXP >::type p(pSEXP);
+    rcpp_result_gen = Rcpp::wrap(classy_get_address1(p));
     return rcpp_result_gen;
 END_RCPP
 }
 // new_classy3
-SEXP new_classy3(NumericVector x_);
-RcppExport SEXP _classy_new_classy3(SEXP x_SEXP) {
+SEXP new_classy3(NumericVector x);
+RcppExport SEXP _classy_new_classy3(SEXP xSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< NumericVector >::type x_(x_SEXP);
-    rcpp_result_gen = Rcpp::wrap(new_classy3(x_));
+    Rcpp::traits::input_parameter< NumericVector >::type x(xSEXP);
+    rcpp_result_gen = Rcpp::wrap(new_classy3(x));
     return rcpp_result_gen;
 END_RCPP
 }
 // classy_get3
-SEXP classy_get3(SEXP p_);
-RcppExport SEXP _classy_classy_get3(SEXP p_SEXP) {
+SEXP classy_get3(SEXP p);
+RcppExport SEXP _classy_classy_get3(SEXP pSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< SEXP >::type p_(p_SEXP);
-    rcpp_result_gen = Rcpp::wrap(classy_get3(p_));
+    Rcpp::traits::input_parameter< SEXP >::type p(pSEXP);
+    rcpp_result_gen = Rcpp::wrap(classy_get3(p));
     return rcpp_result_gen;
 END_RCPP
 }
 // classy_count3
-int classy_count3(SEXP p_);
-RcppExport SEXP _classy_classy_count3(SEXP p_SEXP) {
+int classy_count3(SEXP p);
+RcppExport SEXP _classy_classy_count3(SEXP pSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< SEXP >::type p_(p_SEXP);
-    rcpp_result_gen = Rcpp::wrap(classy_count3(p_));
+    Rcpp::traits::input_parameter< SEXP >::type p(pSEXP);
+    rcpp_result_gen = Rcpp::wrap(classy_count3(p));
     return rcpp_result_gen;
 END_RCPP
 }
 // classy_sum3
-double classy_sum3(SEXP p_);
-RcppExport SEXP _classy_classy_sum3(SEXP p_SEXP) {
+double classy_sum3(SEXP p);
+RcppExport SEXP _classy_classy_sum3(SEXP pSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< SEXP >::type p_(p_SEXP);
-    rcpp_result_gen = Rcpp::wrap(classy_sum3(p_));
+    Rcpp::traits::input_parameter< SEXP >::type p(pSEXP);
+    rcpp_result_gen = Rcpp::wrap(classy_sum3(p));
     return rcpp_result_gen;
 END_RCPP
 }
 // classy_count_if_less3
-double classy_count_if_less3(SEXP p_, double y);
-RcppExport SEXP _classy_classy_count_if_less3(SEXP p_SEXP, SEXP ySEXP) {
+double classy_count_if_less3(SEXP p, double y);
+RcppExport SEXP _classy_classy_count_if_less3(SEXP pSEXP, SEXP ySEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< SEXP >::type p_(p_SEXP);
+    Rcpp::traits::input_parameter< SEXP >::type p(pSEXP);
     Rcpp::traits::input_parameter< double >::type y(ySEXP);
-    rcpp_result_gen = Rcpp::wrap(classy_count_if_less3(p_, y));
+    rcpp_result_gen = Rcpp::wrap(classy_count_if_less3(p, y));
+    return rcpp_result_gen;
+END_RCPP
+}
+// classy_get_address3
+int classy_get_address3(SEXP p);
+RcppExport SEXP _classy_classy_get_address3(SEXP pSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< SEXP >::type p(pSEXP);
+    rcpp_result_gen = Rcpp::wrap(classy_get_address3(p));
+    return rcpp_result_gen;
+END_RCPP
+}
+// get_address
+int get_address(const NumericVector& x);
+RcppExport SEXP _classy_get_address(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< const NumericVector& >::type x(xSEXP);
+    rcpp_result_gen = Rcpp::wrap(get_address(x));
     return rcpp_result_gen;
 END_RCPP
 }
@@ -124,11 +157,14 @@ static const R_CallMethodDef CallEntries[] = {
     {"_classy_classy_count1", (DL_FUNC) &_classy_classy_count1, 1},
     {"_classy_classy_sum1", (DL_FUNC) &_classy_classy_sum1, 1},
     {"_classy_classy_count_if_less1", (DL_FUNC) &_classy_classy_count_if_less1, 2},
+    {"_classy_classy_get_address1", (DL_FUNC) &_classy_classy_get_address1, 1},
     {"_classy_new_classy3", (DL_FUNC) &_classy_new_classy3, 1},
     {"_classy_classy_get3", (DL_FUNC) &_classy_classy_get3, 1},
     {"_classy_classy_count3", (DL_FUNC) &_classy_classy_count3, 1},
     {"_classy_classy_sum3", (DL_FUNC) &_classy_classy_sum3, 1},
     {"_classy_classy_count_if_less3", (DL_FUNC) &_classy_classy_count_if_less3, 2},
+    {"_classy_classy_get_address3", (DL_FUNC) &_classy_classy_get_address3, 1},
+    {"_classy_get_address", (DL_FUNC) &_classy_get_address, 1},
     {NULL, NULL, 0}
 };
 
